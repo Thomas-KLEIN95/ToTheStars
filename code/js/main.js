@@ -52,7 +52,6 @@ function createGround(scene){
         groundMaterial.diffuseColor = new BABYLON.Color3(0.2, 1, 0);
         groundMaterial.emissiveColor = new BABYLON.Color3(0.2, 0.4, 0);
         ground.material = groundMaterial;
-        ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
         return ground;
 }
 
@@ -62,7 +61,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 3.5;
     box.position.x = 15;
 
@@ -71,7 +69,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 7;
     box.position.x = 30;
 
@@ -81,7 +78,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(0.2, 1, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.2, 0.4, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 5.5;
     box.position.x = 45;
 
@@ -91,7 +87,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 7;
     box.position.x = 55;
 
@@ -101,7 +96,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 3.5;
     box.position.x = 65;
 
@@ -111,7 +105,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 14.5;
     box.position.x = 60;
 
@@ -121,7 +114,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 10;
     box.position.x = 75;
 
@@ -131,12 +123,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0.7);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, {mass: 0, restitution: 0 }, scene);
-    box.physicsImpostor.registerOnPhysicsCollide(sphere.physicsImpostor, function(main, collided) {
-        collided.setLinearVelocity(new BABYLON.Vector3(0,0,0));
-        collided.applyImpulse(new BABYLON.Vector3(0, 30, 0), sphere.getAbsolutePosition());
-    })
-
     box.position.y = 11.25;
     box.position.x = 75;
 
@@ -145,7 +131,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.7, 0, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 20;
     box.position.x = 91;
 
@@ -155,7 +140,6 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseColor = new BABYLON.Color3(0.2, 1, 0);
     boxMaterial.emissiveColor = new BABYLON.Color3(0.2, 0.4, 0);
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 11.5;
     box.position.x = 105;
 
@@ -164,17 +148,17 @@ function createPlatforms(scene, sphere){
     boxMaterial.diffuseTexture = new BABYLON.Texture("images/arrival.jpg", scene);
     boxMaterial.emissiveColor = new BABYLON.Color3.White;
     box.material = boxMaterial;
-    box.physicsImpostor = new BABYLON.PhysicsImpostor(box, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0 }, scene);
     box.position.y = 24;
     box.position.x = 105;
     box.particleSystem = createParticleSystem(scene);
     setParticleSystemDefaultValues(box);
-    box.physicsImpostor.registerOnPhysicsCollide(sphere.physicsImpostor, function() {
+    /*
+    QUAND LA SPHERE TOUCHE L'ARRIVEE {
         box.particleSystem.start();
         setTimeout(() => {
         box.particleSystem.stop();
         }, 1500);
-    })  
+    }  */
 
 
 }
@@ -186,24 +170,64 @@ function createSphere(scene){
     sphere.material = sphereMaterial;
     sphere.position.y = 1;
     sphere.isPickable= false;
-    sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, {mass: 2, restitution:0}, scene);
-    sphere.speed = 0.15;
+    sphere.moveSpeed = 0.25;
+    sphere.jumpSpeed = 0.2;
+    sphere.jumpTop = 0;
+    sphere.jumping = false;
+    sphere.falling = false;
     
 
     sphere.move = () => {
-        if(inputStates.up) {
+        if(inputStates.up && !sphere.jumping && !sphere.falling) {
             if(checkIfCanJump(sphere)){
-                sphere.physicsImpostor.applyImpulse(new BABYLON.Vector3(0, 20, 0), sphere.getAbsolutePosition());
+                sphere.jumpTop = sphere.position.y + 6;
+                sphere.jumping = true;
             }
         }/*    
         if(inputStates.down) {
 
         }    */
         if(inputStates.left) {
-            sphere.moveWithCollisions(new BABYLON.Vector3(-sphere.speed, 0, 0));
-        }    
+            if(checkIfCanMove(sphere, new BABYLON.Vector3(-1, 0, 0))){
+                sphere.position.x -= sphere.moveSpeed;
+                if(!sphere.jumping && !sphere.falling){
+                    if(checkIfCanMove(sphere, new BABYLON.Vector3(0, -1, 0))){
+                        sphere.falling = true;
+                    }
+                }
+            }
+        }
         if(inputStates.right) {
-            sphere.moveWithCollisions(new BABYLON.Vector3(sphere.speed, 0, 0));
+            if(checkIfCanMove(sphere, new BABYLON.Vector3(1, 0, 0))){
+                sphere.position.x += sphere.moveSpeed;
+                if(!sphere.jumping && !sphere.falling){
+                    if(checkIfCanMove(sphere, new BABYLON.Vector3(0, -1, 0))){
+                        sphere.falling = true;
+                    }
+                }
+            }
+        }
+        if(sphere.jumping){
+            if(checkIfCanMove(sphere, new BABYLON.Vector3(0, 1, 0))){
+                sphere.position.y += sphere.jumpSpeed;
+                if(sphere.position.y >= sphere.jumpTop){
+                    sphere.jumping = false;
+                    sphere.falling = true;
+                }
+            }
+            else{
+                sphere.jumping = false;
+                sphere.falling = true;
+            }
+            
+        }
+        if(sphere.falling){
+            if(checkIfCanMove(sphere, new BABYLON.Vector3(0, -1, 0))){
+                sphere.position.y -= sphere.jumpSpeed;
+            }
+            else{
+                sphere.falling = false;
+            }
         }
     }
     return sphere;
@@ -216,7 +240,7 @@ function createFollowCamera(scene, target){
     camera.lockedTarget = target;
     camera.heightOffset = 1;
     camera.rotationOffset = 180;
-    camera.cameraAcceleration = 0.5;
+    camera.cameraAcceleration = 0.1;
 
     camera.inputs.clear();
 
@@ -292,6 +316,20 @@ function checkIfCanJump(sphere){
     }, 200);*/
     let pickInfo =  scene.pickWithRay(ray);
     return pickInfo.hit;
+}
+
+function checkIfCanMove(sphere, direction){
+    let origin = sphere.position;
+    let length = 1.01;
+    let ray = new BABYLON.Ray(origin, direction, length);
+    /*
+    let rayHelper = new BABYLON.RayHelper(ray);
+    rayHelper.show(scene, new BABYLON.Color3.Red);
+    setTimeout(() => {
+        rayHelper.hide(ray);
+    }, 200);*/
+    let pickInfo =  scene.pickWithRay(ray);
+    return !pickInfo.hit;
 }
 
 function modifySettings() {
